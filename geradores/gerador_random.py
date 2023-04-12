@@ -1,7 +1,8 @@
-import csv
 import random
+import csv
 
-lista = ','.join(map(str, [random.randint(0, 101) for i in range(101)]))
-with open("lista_randomica.csv", "w", newline="") as file:
-    writer = csv.writer(file)
-    writer.writerow(lista.split(" "))
+lista = [random.randint(0, 500000) for i in range(500000)]
+
+with open('lista_randomica.csv', mode='w') as file:
+    writer = csv.writer(file, delimiter=' ')
+    writer.writerow(lista)
