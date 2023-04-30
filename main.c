@@ -5,23 +5,23 @@
 struct timeval t1, t2;
 double elapsedTime;
 /*para o calculo do tempo*/
-unsigned long time_diff(struct timeval a, struct timeval b){
-	struct timeval res;
-	timersub(&a, &b, &res);
-	return res.tv_sec * 1000000 + res.tv_usec;
+unsigned long time_diff(struct timeval a, struct timeval b) {
+  struct timeval res;
+  timersub(&a, &b, &res);
+  return res.tv_sec * 1000000 + res.tv_usec;
 }
 
 void bubble_sort(int arr[], int n) {
-	int i, j;
-	for (i = 0; i < n-1; i++) {
-		for (j = 0; j < n-i-1; j++) {
-			if (arr[j] > arr[j+1]) {
-				int temp = arr[j];
-				arr[j] = arr[j+1];
-				arr[j+1] = temp;
-			}
-		}
-	}
+  int i, j;
+  for (i = 0; i < n - 1; i++) {
+    for (j = 0; j < n - i - 1; j++) {
+      if (arr[j] > arr[j + 1]) {
+        int temp = arr[j];
+        arr[j] = arr[j + 1];
+        arr[j + 1] = temp;
+      }
+    }
+  }
 }
 
 int main(int argc, char **argv) {
@@ -52,11 +52,11 @@ int main(int argc, char **argv) {
   bubble_sort(lista, count);
   gettimeofday(&t2, NULL);
   // OUTPUT
-  // for (int i = 0; i < count; i++) {
-  //   printf("%d\n", lista[i]);
-  // }
-	//imprimi o tempo em milisegundos								
-	printf("\n Tempo de Execucao: ---> %lf \n",time_diff(t2, t1)/100000.0);
+  for (int i = 0; i < count; i++) {
+    printf("%d\n", lista[i]);
+  }
+  // imprimi o tempo em milisegundos
+  printf("\n Tempo de Execucao: ---> %lf \n", time_diff(t2, t1) / 100000.0);
 
   free(lista);
   return 0;
